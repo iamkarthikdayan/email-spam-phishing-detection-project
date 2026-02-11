@@ -1,8 +1,8 @@
 from flask import Flask, request, render_template
-import joblib, json, numpy as np, re
+import joblib, json, numpy as np, re, os
 from utils.preprocess import clean_email
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates'))
 
 # Load models and metadata
 clf_binary = joblib.load("models/clf_binary.pkl")
